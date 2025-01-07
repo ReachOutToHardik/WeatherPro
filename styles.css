@@ -8,16 +8,18 @@ body {
   justify-content: center;
   align-items: center;
   min-height: 100vh;
+  overflow-x: hidden; /* Prevent horizontal scrolling */
 }
 
 .app-container {
   width: 90%;
-  max-width: 900px; /* Max-width adjusted for a compact laptop layout */
+  max-width: 900px;
   background: #fff;
   border-radius: 15px;
   padding: 20px;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
   text-align: center;
+  overflow: hidden; /* Prevent overflow inside the container */
 }
 
 .app-header h1 {
@@ -80,20 +82,15 @@ body {
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
   padding: 20px;
   width: 100%;
-  max-width: 450px; /* Slightly reduced width for better compactness */
-  margin: 0 auto; /* Center the card */
+  max-width: 450px;
+  margin: 0 auto;
   text-align: center;
+  box-sizing: border-box; /* Prevent padding from causing overflow */
 }
 
 .weather-card h2 {
   font-size: 1.5rem;
   color: #4a90e2;
-}
-
-.weather-card .weather-icon {
-  margin: 20px 0;
-  width: 80px; /* Slightly smaller icon */
-  height: 80px;
 }
 
 .weather-card .temperature {
@@ -110,7 +107,7 @@ body {
 
 .weather-details {
   display: grid;
-  grid-template-columns: repeat(2, 1fr); /* Grid layout for weather details */
+  grid-template-columns: repeat(2, 1fr);
   gap: 15px;
   margin-top: 15px;
 }
@@ -163,8 +160,16 @@ body {
     width: 90%;
   }
 
-  .weather-details div {
-    width: 90%;
+  .weather-container {
+    margin-top: 20px;
+  }
+
+  .weather-card {
+    width: 90%; /* Ensure the weather card stays within the container */
+  }
+
+  .weather-details {
+    gap: 10px; /* Adjust spacing for smaller screens */
   }
 
   .app-footer {
@@ -180,15 +185,11 @@ body {
   }
 
   .weather-card {
-    max-width: 450px; /* Adjusted max-width */
+    max-width: 450px;
   }
 
   .weather-details {
-    display: grid;
-    grid-template-columns: repeat(
-      3,
-      1fr
-    ); /* Make the weather details appear in 3 columns for large screens */
+    grid-template-columns: repeat(3, 1fr);
   }
 
   .app-footer {
